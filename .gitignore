@@ -1,0 +1,29 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Environments
+.env
+.venv/
+env/
+venv/
+
+# uv
+uv.lock
+
+# Docker volumes / local data
+pgdata/
+meili_data/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
