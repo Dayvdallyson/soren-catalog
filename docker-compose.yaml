@@ -1,4 +1,5 @@
 services:
+
   postgres:
     image: postgres:16-alpine
     environment:
@@ -20,12 +21,13 @@ services:
     ports: ["7700:7700"]
     volumes: [meili_data:/meili_data]
 
-    mailhog:
-      image: mailhog/mailhog:latest
-      ports:
-        - "1025:1025"
-        - "8025:8025"
+  mailhog:
+    image: mailhog/mailhog:latest
+    ports:
+      - "1025:1025"
+      - "8025:8025"
 
 volumes:
   pgdata:
+
   meili_data:
