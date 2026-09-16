@@ -13,7 +13,7 @@ class MeilisearchIndex(SearchIndex):
       "id": product.id,
       "name": product.name,
       "description": product.description,
-      "price": product.price,
+      "price": float(product.price),
     }])
 
   def search(self, query: str) -> list[dict]:

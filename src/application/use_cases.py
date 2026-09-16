@@ -1,7 +1,7 @@
 import json
+from decimal import Decimal
 from src.domain.entities import Product
 from src.domain.repositories import ProductRepository, Cache, SearchIndex, TaskQueue
-
 
 class GetProductUseCase:
     def __init__(self, repository: ProductRepository, cache: Cache):
@@ -13,7 +13,9 @@ class GetProductUseCase:
 
         cached = self._cache.get(cache_key)
         if cached:
-            return Product(**json.loads(cached))
+            data = json.loads(cached)
+            data["price"] = Decimal(data["price"])
+            return Product(**data)
 
         product = self._repository.get_by_id(product_id)
         if product:
